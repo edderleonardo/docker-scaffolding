@@ -1,0 +1,14 @@
+{% extends 'emails/base.html' %}
+{% load i18n %}
+
+{% block content %}
+  Hola <b style="color:#00A1DD; ">{{user}}</b>, tu cuenta ya está disponible.
+
+  {% if password %}
+    Puedes iniciar sesión usando tu correo electrónico y esta contraseña temporal: {{ password }}
+  {% endif %}
+
+  <br><br>
+
+  <a style="color: #00A1DD;" href="{{ request.scheme }}://{{ request.get_host }}/accounts/login/">Ingresar</a>
+{% endblock %}
